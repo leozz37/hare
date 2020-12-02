@@ -40,19 +40,19 @@ You can check the [example code]() for listening:
 package main
 
 import (
-    "fmt"
-    "github.com/leozz37/hare"
+	"fmt"
+
+	"github.com/leozz37/hare"
 )
 
 func main() {
-    r, err := hare.Listen(3000)
-    if err {
-        panic(err)
-    }
+	r := hare.Listen("3000")
 
-    if r.HasMessage() {
-        fmt.Println(r.LastMessage())
-    }
+	for {
+		if r.HasNewMessages {
+			fmt.Println(hare.GetMessage())
+		}
+	}
 }
 ```
 
