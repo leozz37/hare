@@ -2,10 +2,7 @@ package hare
 
 import (
 	"bufio"
-	"fmt"
-	"log"
 	"net"
-	"os"
 )
 
 const (
@@ -22,12 +19,11 @@ type Listener struct {
 
 var listener Listener
 
-func listening() {
+func listening() error {
 	for {
 		c, err := listener.SocketListener.Accept()
 		if err != nil {
-			fmt.Println("Error connecting:", err.Error())
-			return
+			return err
 		}
 		message, _ := bufio.NewReader(c).ReadString('\n')
 		listener.Message = message
@@ -42,29 +38,29 @@ func GetMessage() string {
 }
 
 // Listen to socket port
-func Listen(port string) *Listener {
+func Listen(port string) (*Listener, error) {
 	var err error
 	listener.SocketListener, err = net.Listen(connType, connHost+":"+port)
 	if err != nil {
-		fmt.Println("Error listening:", err.Error())
-		os.Exit(1)
+		return nil, err
 	}
 
 	go listening()
 
-	return &listener
+	return &listener, nil
 }
 
 // Send message to socket port
-func Send(port, message string) {
+func Send(port, message string) error {
 	conn, err := net.Dial(connType, connHost+":"+port)
 	if err != nil {
-		log.Fatal(err)
+		return err
 	}
 	defer conn.Close()
 
 	_, err = conn.Write([]byte(message))
 	if err != nil {
-		log.Fatal(err)
+		return err
 	}
+	return nil
 }
