@@ -34,29 +34,7 @@ import "github.com/leozz37/hare"
 
 ## Quick start
 
-You can check the [example code]() for listening:
-
-```go
-package main
-
-import (
-	"fmt"
-
-	"github.com/leozz37/hare"
-)
-
-func main() {
-	r := hare.Listen("3000")
-
-	for {
-		if r.HasNewMessages {
-			fmt.Println(hare.GetMessage())
-		}
-	}
-}
-```
-
-Example code for sending payloads:
+[Example code](./examples/send.go) for sending payloads:
 
 ```go
 package main
@@ -67,6 +45,28 @@ import (
 
 func main() {
     hare.Send(3000, "Hello, World")
+}
+```
+
+[Example code](./examples/listen.go) for listening port:
+
+```go
+package main
+
+import (
+    "fmt"
+
+    "github.com/leozz37/hare"
+)
+
+func main() {
+    r := hare.Listen("3000")
+
+    for {
+        if r.HasNewMessages {
+            fmt.Println(hare.GetMessage())
+        }
+    }
 }
 ```
 
