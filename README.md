@@ -3,6 +3,7 @@
 <img align="right" width="159px" src="./resources/images/small-icon.png">
 
 ![Go](https://github.com/leozz37/hare/workflows/Go/badge.svg)
+[![codecov](https://codecov.io/gh/leozz37/hare/branch/main/graph/badge.svg?token=QC44PEpHRi)](https://codecov.io/gh/leozz37/hare)
 [![Go Report Card](https://goreportcard.com/badge/github.com/leozz37/hare)](https://goreportcard.com/report/github.com/leozz37/hare)
 [![GoDoc](https://pkg.go.dev/badge/github.com/leozz37/hare?status.svg)](https://pkg.go.dev/github.com/leozz37/hare?tab=doc)
 
