@@ -4,6 +4,7 @@
 
 ![Go](https://github.com/leozz37/hare/workflows/Go/badge.svg)
 [![Go Report Card](https://goreportcard.com/badge/github.com/leozz37/hare)](https://goreportcard.com/report/github.com/leozz37/hare)
+[![GoDoc](https://pkg.go.dev/badge/github.com/leozz37/hare?status.svg)](https://pkg.go.dev/github.com/leozz37/hare?tab=doc)
 
 User friendly socket lib for Golang
 
