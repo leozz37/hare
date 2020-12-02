@@ -21,10 +21,7 @@ var listener Listener
 
 func listening() error {
 	for {
-		c, err := listener.SocketListener.Accept()
-		if err != nil {
-			return err
-		}
+		c, _ := listener.SocketListener.Accept()
 		message, _ := bufio.NewReader(c).ReadString('\n')
 		listener.Message = message
 		listener.HasNewMessages = true
@@ -58,9 +55,6 @@ func Send(port, message string) error {
 	}
 	defer conn.Close()
 
-	_, err = conn.Write([]byte(message))
-	if err != nil {
-		return err
-	}
+	conn.Write([]byte(message))
 	return nil
 }
