@@ -1,4 +1,4 @@
-# hare 🐇
+# Hare Socket 🐇
 
 <img align="right" width="159px" src="./resources/images/small-icon.png">
 
@@ -9,7 +9,7 @@
 [![Release](https://img.shields.io/github/v/release/leozz37/hare)](https://github.com/leozz37/hare/releases)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
-User friendly socket lib for Golang
+Hare is a user-friendly lib wrapper for sockets.
 
 ## Contents
 
