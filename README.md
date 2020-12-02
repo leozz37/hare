@@ -75,11 +75,43 @@ func main() {
 
 ## Documentation
 
-TODO: Implement documentation
+You can check the full documentation on [Godoc](https://pkg.go.dev/github.com/leozz37/hare#section-documentation).
+
+The library consists on two features: listen and send to a given port.
+
+`Send` receives a `port` and a `message`, both as `string` and returns a `error` (if it happens).
+
+```go
+func Send(port, message string) error;
+```
+
+`Listen` receives a `port` as `string` and returns a `Listener` struct and an `error` (if it happens).
+
+```go
+func Listen(port string) (*Listener, error);
+```
+
+The `Listener` struct has the following attributes:
+
+```go
+type Listener struct {
+	SocketListener net.Listener
+	HasNewMessages bool
+	Message        string
+}
+```
+
+A `net.Listener` connection, a `bool` flag for new messages and `string` with the message.
+
+The `GetMessage()` method returns the last message:
+
+```go
+func GetMessage() string;
+```
 
 ## Examples
 
-You can check the [example](./examples) for code usages example.
+You can check the [example](./examples) for code usages, like [send](./examples/send.go) and [listen](./examples/listen.go) samples.
 
 ## Testing
 
