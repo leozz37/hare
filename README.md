@@ -63,7 +63,7 @@ import (
 )
 
 func main() {
-    r := hare.Listen("3000")
+    r, _ := hare.Listen("3000")
 
     for {
         if r.HasNewMessages {
