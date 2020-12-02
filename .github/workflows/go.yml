@@ -15,8 +15,8 @@ jobs:
       - name: Get dependencies
         run: go mod download
 
-      - name: Build
-        run: go build -v ./...
+      - name: Test
+        run: go test -v -covermode=count -coverprofile=coverage.out
 
-#      - name: Test
-#        run: go test -v ./...
+      - name: Upload coverage
+        run: bash <(curl -s https://codecov.io/bash)

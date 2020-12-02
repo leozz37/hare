@@ -16,3 +16,6 @@
 
 # IDE
 .idea
+
+# Coverage file
+coverage.out
