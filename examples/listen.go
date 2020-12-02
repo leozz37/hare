@@ -7,7 +7,10 @@ import (
 )
 
 func main() {
-	r := hare.Listen("3000")
+	r, err := hare.Listen("3000")
+	if err != nil {
+		panic(err)
+	}
 
 	for {
 		if r.HasNewMessages {

@@ -5,5 +5,8 @@ import (
 )
 
 func main() {
-	hare.Send("3000", "Hey")
+	err := hare.Send("3000", "Hey")
+	if err != {
+		panic(err)
+	}
 }
