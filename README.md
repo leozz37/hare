@@ -37,7 +37,7 @@ import "github.com/leozz37/hare"
 
 ## Quick start
 
-[Example code](./examples/send.go) for sending payloads:
+[Sample code](./examples/send.go) for sending payloads:
 
 ```go
 package main
@@ -51,7 +51,7 @@ func main() {
 }
 ```
 
-[Example code](./examples/listen.go) for listening port:
+[Sample code](./examples/listen.go) for listening port:
 
 ```go
 package main
@@ -79,8 +79,19 @@ TODO: Implement documentation
 
 ## Examples
 
-TODO: Implement examples
+You can check the [example](./examples) for code usages example.
 
 ## Testing
 
-TODO: Implement testing instructions
+To run the test suite, you can run with:
+
+```shell
+$ go test
+```
+
+If you want a more detailed report with coverage and an `coverage.out` file, do the following:
+
+```shell
+$ go test -v -covermode=count -coverprofile=coverage.out
+```
+
