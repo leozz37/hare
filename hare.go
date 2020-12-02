@@ -1,11 +1,8 @@
 package main
 
 import (
-	"bufio"
-	"fmt"
 	"log"
 	"net"
-	"os"
 )
 
 const (
@@ -13,28 +10,15 @@ const (
 	connType = "tcp"
 )
 
-// Listen to a socket port
-func Listen(port string) {
-	l, err := net.Listen(connType, connHost+":"+port)
-
+func Sender(port, message string) {
+	conn, err := net.Dial(connType, connHost+":"+port)
 	if err != nil {
-		fmt.Println("Error listening:", err.Error())
-		os.Exit(1)
+		log.Fatal(err)
 	}
-	defer l.Close()
+	defer conn.Close()
 
-	for {
-		c, err := l.Accept()
-		if err != nil {
-			fmt.Println("Error connecting:", err.Error())
-			return
-		}
-		message, _  := bufio.NewReader(c).ReadString('\n')
-		log.Print(message)
+	_, err = conn.Write([]byte(message))
+	if err != nil {
+		log.Fatal(err)
 	}
-}
-
-
-func main() {
-	Listen("3000")
 }
