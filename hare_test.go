@@ -19,15 +19,15 @@ func TestSend(t *testing.T) {
 }
 
 func TestSendFailConnect(t *testing.T) {
-	err := Send("8005", "Hello")
+	err := Send("3001", "Hello")
 	if err == nil {
 		t.Errorf("Sended message to unknow port")
 	}
 }
 
 func TestListen(t *testing.T) {
-	r, _ := Listen("3001")
-	Send("3001", "Hey Hey")
+	r, _ := Listen("3002")
+	Send("3002", "Hey Hey")
 
 	// waiting for the message to be sended
 	time.Sleep(time.Second)
@@ -38,9 +38,26 @@ func TestListen(t *testing.T) {
 }
 
 func TestListenBusyPort(t *testing.T) {
-	Listen("3000")
-	_, err := Listen("3000")
+	Listen("3003")
+	_, err := Listen("3003")
 	if err == nil {
 		t.Errorf("Listen opened a busy port")
 	}
+}
+
+func TestGetMessage(t *testing.T) {
+	expected := "Hey gopher!"
+
+	_, err := Listen("3004")
+	if err != nil {
+		t.Errorf("Couldn't open port")
+	}
+
+	Send("3004", expected)
+	time.Sleep(time.Second)
+
+	if GetMessage() != expected {
+		t.Errorf("Input message different from output")
+	}
+
 }
