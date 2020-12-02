@@ -1,5 +1,8 @@
 # hare 🐇
 
+![Go](https://github.com/leozz37/hare/workflows/Go/badge.svg)
+[![Go Report Card](https://goreportcard.com/badge/github.com/leozz37/hare)](https://goreportcard.com/report/github.com/leozz37/hare)
+
 User friendly socket lib for Golang
 
 ## Installation
