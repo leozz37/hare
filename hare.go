@@ -10,7 +10,7 @@ const (
 	connType = "tcp"
 )
 
-func Sender(port, message string) {
+func Send(port, message string) {
 	conn, err := net.Dial(connType, connHost+":"+port)
 	if err != nil {
 		log.Fatal(err)
