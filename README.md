@@ -7,6 +7,16 @@
 
 User friendly socket lib for Golang
 
+## Contents
+
+- [Hare](#hare-)
+  - [Contents](#contents)
+  - [Installation](#installation)
+  - [Quick start](#quick-start)
+  - [Documentation](#documentation)
+  - [Examples](#examples)
+  - [Testing](#testing)
+
 ## Installation
 
 Install Hare:
@@ -58,3 +68,15 @@ func main() {
     hare.Send(3000, "Hello, World")
 }
 ```
+
+## Documentation
+
+TODO: Implement documentation
+
+## Examples
+
+TODO: Implement examples
+
+## Testing
+
+TODO: Implement testing instructions
