@@ -22,7 +22,7 @@ User friendly socket lib for Golang
 Install Hare:
 
 ```shell
-$ go get "github.com/leozz37/hare
+$ go get "github.com/leozz37/hare"
 ```
 
 Import it in your code:
