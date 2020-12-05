@@ -11,8 +11,8 @@ func TestSend(t *testing.T) {
 	r, _ := Listen("3000")
 	Send("3000", expected)
 
-	if r.HasNewMessages {
-		if GetMessage() != expected {
+	if r.HasNewMessages() {
+		if r.GetMessage() != expected {
 			t.Errorf("Output different from input")
 		}
 	}
@@ -32,7 +32,7 @@ func TestListen(t *testing.T) {
 	// waiting for the message to be sended
 	time.Sleep(time.Second)
 
-	if r.HasNewMessages == false {
+	if r.HasNewMessages() == false {
 		t.Errorf("Listen didn't receive any messsage")
 	}
 }
@@ -48,7 +48,7 @@ func TestListenBusyPort(t *testing.T) {
 func TestGetMessage(t *testing.T) {
 	expected := "Hey gopher!"
 
-	_, err := Listen("3004")
+	r, err := Listen("3004")
 	if err != nil {
 		t.Errorf("Couldn't open port")
 	}
@@ -56,7 +56,7 @@ func TestGetMessage(t *testing.T) {
 	Send("3004", expected)
 	time.Sleep(time.Second)
 
-	if GetMessage() != expected {
+	if r.GetMessage() != expected {
 		t.Errorf("Input message different from output")
 	}
 

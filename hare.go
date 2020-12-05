@@ -14,6 +14,7 @@ const (
 type Listener struct {
 	SocketListener net.Listener
 	GetMessage     func() string
+	HasNewMessages func() bool
 }
 
 // MessageManager manages message storage
@@ -45,6 +46,10 @@ func Listen(port string) (*Listener, error) {
 	listener.GetMessage = func() string {
 		messageManager.HasNewMessages = false
 		return messageManager.Message
+	}
+
+	listener.HasNewMessages = func() bool {
+		return messageManager.HasNewMessages
 	}
 
 	go listening()
