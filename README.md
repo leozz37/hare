@@ -75,43 +75,136 @@ func main() {
 
 ## Documentation
 
-You can check the full documentation on [Godoc](https://pkg.go.dev/github.com/leozz37/hare#section-documentation).
+The library consists on two features: **listen** and **send** to a given port. You can check the full documentation on [Godoc](https://pkg.go.dev/github.com/leozz37/hare#section-documentation).
 
-The library consists on two features: listen and send to a given port.
+> You can use [Jaguar](https://github.com/leozz37/jaguar) to test sockets!
 
-`Send` receives a `port` and a `message`, both as `string` and returns a `error` (if it happens).
+### Send
+
+Receives a `port` and a `message`, both as `string` and returns an `error` (if something goes wrong).
 
 ```go
 func Send(port, message string) error;
 ```
 
-`Listen` receives a `port` as `string` and returns a `Listener` struct and an `error` (if it happens).
+Usage example:
+
+```go
+func main() {
+    err := hare.Send(3000, "Hello, World")
+    if err != nil {
+        panic(err)
+    }
+}
+```
+
+---
+
+### Listen
+
+Receives a `port` as `string` and returns a `Listener` struct and an `error` (if something goes wrong).
 
 ```go
 func Listen(port string) (*Listener, error);
 ```
 
-The `Listener` struct has the following attributes:
+Usage example:
+
+```go
+func main() {
+    r, _ := hare.Listen("3000")
+    l, _ := hare.listen("3001")
+
+    for {
+        if r.HasNewMessages() {
+            fmt.Println(r.GetMessage())
+        } else if l.HasNewMessages() {
+            fmt.Println(l.GetMessage())
+        }
+    }
+```
+
+---
+
+### Listener
+
+The **Listener** struct returned by `Listen()` function has the following fields:
 
 ```go
 type Listener struct {
-	SocketListener net.Listener
-	HasNewMessages bool
-	Message        string
+    SocketListener net.Listener
+    HasNewMessages func() bool
+    GetMessage     func() string
 }
 ```
 
-A `net.Listener` connection, a `bool` flag for new messages and `string` with the message.
-
-The `GetMessage()` method returns the last message:
+`SocketListener` is the socket connection.
 
 ```go
-func GetMessage() string;
+listener.SocketListener, _ = net.Listen("tcp", "localhost:" + port)
+```
+
+`HasNewMessages` function returns a `bool` being `true` with there's a new message:
+
+```go
+func main() {
+    r, _ := hare.Listen("3000")
+
+    if r.HasNewMessages() {
+        fmt.Println("There's a new message!")
+    }
+}
+```
+
+`GetMessage` function returns a `string` with the last message received on the socket:
+
+```go
+func main() {
+    r, _ := hare.Listen("3000")
+
+    if r.HasNewMessages() {
+        fmt.Println(r.GetMessage())
+    }
+}
 ```
 
 ## Examples
 
 You can check the [example](./examples) for code usages, like [send](./examples/send.go) and [listen](./examples/listen.go) samples.
+
+Since Hare only listen and send messages, here's a complete example:
+
+```go
+package main
+
+import (
+    "fmt"
+    "time"
+
+    "github.com/leozz37/hare"
+)
+
+func listenSockets(port string) {
+    r, _ := hare.Listen(port)
+
+    for {
+        if r.HasNewMessages() {
+            fmt.Println(r.GetMessage())
+        }
+    }
+}
+
+func main() {
+    go listenSockets("3000")
+    go listenSockets("3001")
+
+    for {
+        hare.Send("3000", "Hello port 3000")
+        hare.Send("3001", "Hello port 3001")
+        time.Sleep(time.Second)
+    }
+}
+```
 
 ## Testing
 
@@ -126,4 +219,3 @@ If you want a more detailed report with coverage and an `coverage.out` file, do 
 ```shell
 $ go test -v -covermode=count -coverprofile=coverage.out
 ```
-
