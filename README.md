@@ -66,8 +66,8 @@ func main() {
     r, _ := hare.Listen("3000")
 
     for {
-        if r.HasNewMessages {
-            fmt.Println(hare.GetMessage())
+        if r.HasNewMessages() {
+            fmt.Println(r.GetMessage())
         }
     }
 }
