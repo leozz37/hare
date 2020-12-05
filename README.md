@@ -152,7 +152,7 @@ type Listener struct {
 listener.SocketListener, _ = net.Listen("tcp", "localhost:" + port)
 ```
 
-`HasNewMessages` function returns a `bool` being `true` with there's a new message:
+`HasNewMessages()` function returns a `bool` being `true` with there's a new message:
 
 ```go
 func main() {
@@ -164,7 +164,7 @@ func main() {
 }
 ```
 
-`GetMessage` function returns a `string` with the last message received on the socket:
+`GetMessage()` function returns a `string` with the last message received on the socket:
 
 ```go
 func main() {
