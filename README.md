@@ -12,7 +12,7 @@
 [![Release](https://img.shields.io/github/v/release/leozz37/hare)](https://github.com/leozz37/hare/releases)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
-Hare is a user-friendly lib for using sockets in Golang. You can send and listen to TCP sockets with a few lines of code.
+Hare is a user-friendly lib for sockets in Golang. You can send and listen to TCP sockets with a few lines of code.
 
 ## Contents
 
