@@ -13,25 +13,25 @@ const (
 // Listener tools for socket listening
 type Listener struct {
 	SocketListener net.Listener
+	GetMessage     func() string
+}
+
+// MessageManager manages message storage
+type MessageManager struct {
 	HasNewMessages bool
 	Message        string
 }
 
 var listener Listener
+var messageManager MessageManager
 
 func listening() error {
 	for {
 		c, _ := listener.SocketListener.Accept()
 		message, _ := bufio.NewReader(c).ReadString('\n')
-		listener.Message = message
-		listener.HasNewMessages = true
+		messageManager.Message = message
+		messageManager.HasNewMessages = true
 	}
-}
-
-// GetMessage from port
-func GetMessage() string {
-	listener.HasNewMessages = false
-	return listener.Message
 }
 
 // Listen to socket port
@@ -40,6 +40,11 @@ func Listen(port string) (*Listener, error) {
 	listener.SocketListener, err = net.Listen(connType, connHost+":"+port)
 	if err != nil {
 		return nil, err
+	}
+
+	listener.GetMessage = func() string {
+		messageManager.HasNewMessages = false
+		return messageManager.Message
 	}
 
 	go listening()
