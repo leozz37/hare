@@ -1,4 +1,4 @@
-# Hare Socket 🐇
+# Hare Sockets 🐇
 
 <img align="right" width="159px" src="./resources/images/small-icon.png">
 
@@ -12,30 +12,37 @@
 [![Release](https://img.shields.io/github/v/release/leozz37/hare)](https://github.com/leozz37/hare/releases)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
-Hare is a user-friendly lib wrapper for sockets.
+Hare is a user-friendly lib for using sockets in Golang. You can send and listen to TCP sockets with a few lines of code.
 
 ## Contents
 
-- [Hare](#hare-)
-  - [Contents](#contents)
-  - [Installation](#installation)
-  - [Quick start](#quick-start)
-  - [Documentation](#documentation)
-  - [Examples](#examples)
-  - [Testing](#testing)
+- [Installation](#installation)
+- [Quick start](#quick-start)
+- [Documentation](#documentation)
+- [Examples](#examples)
+- [Testing](#testing)
+- [Contribuiting](#contributing)
 
 ## Installation
 
-Install Hare:
+First you need [Go](https://golang.org/) installed, then you can install Hare:
 
 ```shell
-$ go get "github.com/leozz37/hare"
+$ go get -u "github.com/leozz37/hare"
 ```
 
 Import it in your code:
 
 ```shell
 import "github.com/leozz37/hare"
+```
+
+(Optional) install [jaguar](https://github.com/leozz37/jaguar) for testing the sockets:
+
+```shell
+$ brew tap leozz37/jaguar
+
+$ brew install jaguar
 ```
 
 ## Quick start
@@ -79,8 +86,6 @@ func main() {
 ## Documentation
 
 The library consists on two features: **listen** and **send** to a given port. You can check the full documentation on [Godoc](https://pkg.go.dev/github.com/leozz37/hare#section-documentation).
-
-> You can use [Jaguar](https://github.com/leozz37/jaguar) to test sockets!
 
 ### Send
 
@@ -222,3 +227,19 @@ If you want a more detailed report with coverage and an `coverage.out` file, do 
 ```shell
 $ go test -v -covermode=count -coverprofile=coverage.out
 ```
+
+## Contributing
+
+Check the [CONTRIBUTING.md](./CONTRIBUTING.md) for more informations.
+
+- With issues:
+  - Use the search tool before opening a new issue.
+  - Please provide source code and commit sha if you found a bug.
+  - Review existing issues and provide feedback or react to them.
+
+- With pull requests:
+  - Open your pull request against `master`.
+  - It should pass all tests in the available continuous integration.
+  - You should add/modify tests to cover your proposed code changes.
+  - Tests coverage should never go down from 100%.
+  - If your pull request contains a new feature, please document it on the README.
