@@ -26,7 +26,10 @@ func TestSendFailConnect(t *testing.T) {
 }
 
 func TestListen(t *testing.T) {
-	r, _ := Listen("3002")
+	r, err := Listen("3002")
+	if err != nil {
+		panic(err)
+	}
 	Send("3002", "Hey Hey")
 
 	// waiting for the message to be sended

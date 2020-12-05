@@ -23,9 +23,7 @@ type MessageManager struct {
 	Message        string
 }
 
-var messageManager MessageManager
-
-func listening(listener Listener) error {
+func listening(listener Listener, messageManager *MessageManager) error {
 	for {
 		c, _ := listener.SocketListener.Accept()
 		message, _ := bufio.NewReader(c).ReadString('\n')
@@ -38,6 +36,7 @@ func listening(listener Listener) error {
 func Listen(port string) (Listener, error) {
 	var err error
 	var listener Listener
+	var messageManager MessageManager
 
 	listener.SocketListener, err = net.Listen(connType, connHost+":"+port)
 	if err != nil {
@@ -55,7 +54,7 @@ func Listen(port string) (Listener, error) {
 		return messageManager.HasNewMessages
 	}
 
-	go listening(listener)
+	go listening(listener, &messageManager)
 
 	return listener, nil
 }
