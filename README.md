@@ -25,7 +25,7 @@ Hare is a user-friendly lib for sockets in Golang. You can send and listen to TC
 
 ## Installation
 
-First you need [Go](https://golang.org/) installed, then you can install Hare:
+First you need [Go](https://golang.org/) installed (version 1.12+ is required), then you can install Hare:
 
 ```shell
 $ go get -u "github.com/leozz37/hare"
