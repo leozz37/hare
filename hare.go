@@ -43,11 +43,13 @@ func Listen(port string) (*Listener, error) {
 		return nil, err
 	}
 
+	// GetMessage return the last message
 	listener.GetMessage = func() string {
 		messageManager.HasNewMessages = false
 		return messageManager.Message
 	}
 
+	// HasNewMessages return if there's new messages on socket
 	listener.HasNewMessages = func() bool {
 		return messageManager.HasNewMessages
 	}
