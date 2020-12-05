@@ -7,9 +7,9 @@
 [![Go Report Card](https://goreportcard.com/badge/github.com/leozz37/hare)](https://goreportcard.com/report/github.com/leozz37/hare)
 [![Maintainability](https://api.codeclimate.com/v1/badges/97a96b7d488b201aab7c/maintainability)](https://codeclimate.com/github/leozz37/hare/maintainability)
 [![GoDoc](https://pkg.go.dev/badge/github.com/leozz37/hare?status.svg)](https://pkg.go.dev/github.com/leozz37/hare?tab=doc)
+[![Join the chat at https://gitter.im/hare-sockets/community](https://badges.gitter.im/hare-sockets/community.svg)](https://gitter.im/hare-sockets/community?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 [![Release](https://img.shields.io/github/v/release/leozz37/hare)](https://github.com/leozz37/hare/releases)
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT) [![Join the chat at https://gitter.im/hare-sockets/community](https://badges.gitter.im/hare-sockets/community.svg)](https://gitter.im/hare-sockets/community?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
-
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 Hare is a user-friendly lib wrapper for sockets.
 
 ## Contents
