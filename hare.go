@@ -13,25 +13,35 @@ const (
 // Listener tools for socket listening
 type Listener struct {
 	SocketListener net.Listener
+}
+
+// MessageManager manages the message storage
+type MessageManager struct {
 	HasNewMessages bool
 	Message        string
 }
 
 var listener Listener
+var messageManager MessageManager
 
 func listening() error {
 	for {
 		c, _ := listener.SocketListener.Accept()
 		message, _ := bufio.NewReader(c).ReadString('\n')
-		listener.Message = message
-		listener.HasNewMessages = true
+		messageManager.Message = message
+		messageManager.HasNewMessages = true
 	}
+}
+
+// HasNewMessages return if has new messages on socket
+func HasNewMessages() bool {
+	return messageManager.HasNewMessages
 }
 
 // GetMessage from port
 func GetMessage() string {
-	listener.HasNewMessages = false
-	return listener.Message
+	messageManager.HasNewMessages = false
+	return messageManager.Message
 }
 
 // Listen to socket port
