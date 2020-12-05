@@ -13,8 +13,8 @@ func main() {
 	}
 
 	for {
-		if r.HasNewMessages {
-			fmt.Println(hare.GetMessage())
+		if r.HasNewMessages() {
+			fmt.Println(r.GetMessage())
 		}
 	}
 }
