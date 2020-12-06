@@ -15,6 +15,7 @@ type Listener struct {
 	SocketListener net.Listener
 	HasNewMessages func() bool
 	GetMessage     func() string
+	Stop           func()
 }
 
 // MessageManager manages message storage
@@ -23,13 +24,15 @@ type MessageManager struct {
 	Message        string
 }
 
-func listening(listener Listener, messageManager *MessageManager) error {
-	for {
+func listening(listener Listener, messageManager *MessageManager, running *bool) error {
+	for *running {
 		c, _ := listener.SocketListener.Accept()
 		message, _ := bufio.NewReader(c).ReadString('\n')
 		messageManager.Message = message
 		messageManager.HasNewMessages = true
 	}
+	listener.SocketListener.Close()
+	return nil
 }
 
 // Listen to socket port
@@ -54,7 +57,13 @@ func Listen(port string) (Listener, error) {
 		return messageManager.HasNewMessages
 	}
 
-	go listening(listener, &messageManager)
+	running := true
+	// Stop the listener
+	listener.Stop = func() {
+		running = false
+	}
+
+	go listening(listener, &messageManager, &running)
 
 	return listener, nil
 }

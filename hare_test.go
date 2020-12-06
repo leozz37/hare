@@ -64,3 +64,22 @@ func TestGetMessage(t *testing.T) {
 	}
 
 }
+
+func TestListenStop(t *testing.T) {
+	expected := "Hello World"
+
+	r, _ := Listen("3005")
+	Send("3005", expected)
+
+	if r.HasNewMessages() {
+		if r.GetMessage() != expected {
+			t.Errorf("Output different from input")
+		}
+	}
+
+	r.Stop()
+	err := Send("3005", "This should fails")
+	if err == nil {
+		t.Errorf("Couldn't close connection")
+	}
+}
