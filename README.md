@@ -62,7 +62,7 @@ func main() {
 }
 ```
 
-[Sample code](./examples/listen.go) for listening port:
+[Sample code](./examples/listen.go) for listening a port:
 
 ```go
 package main
