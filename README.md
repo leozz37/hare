@@ -144,6 +144,7 @@ type Listener struct {
     SocketListener net.Listener
     HasNewMessages func() bool
     GetMessage     func() string
+    Stop           func()
 }
 ```
 
@@ -173,6 +174,22 @@ func main() {
 
     if r.HasNewMessages() {
         fmt.Println(r.GetMessage())
+    }
+}
+```
+
+`Stop()` function closes the listener connection:
+
+```go
+func main() {
+    r, _ := hare.Listen("3000")
+    hare.Send("3000", "Hey beauty")
+
+    r.Stop()
+
+    err := Send("3000", "This should fails")
+    if err != nil {
+        panic(err)
     }
 }
 ```
