@@ -21,7 +21,7 @@ Hare is a user-friendly wrapper lib for sockets in Golang. You can send and list
 - [Documentation](#documentation)
 - [Examples](#examples)
 - [Testing](#testing)
-- [Contribuiting](#contributing)
+- [Contributing](#contributing)
 - [License](#license)
 
 ## Installation
