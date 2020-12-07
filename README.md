@@ -248,7 +248,7 @@ $ go test -v -covermode=count -coverprofile=coverage.out
 
 ## Contributing
 
-A full guideline about contributing to Alacritty can be found in the [CONTRIBUTING.md](./CONTRIBUTING.md) file.
+A full guideline about contributing to Hare can be found in the [CONTRIBUTING.md](./CONTRIBUTING.md) file.
   
 ## License
 
