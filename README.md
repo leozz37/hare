@@ -12,7 +12,7 @@
 [![Release](https://img.shields.io/github/v/release/leozz37/hare)](https://github.com/leozz37/hare/releases)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
-Hare is a user-friendly lib for sockets in Golang. You can send and listen to TCP sockets with a few lines of code.
+Hare is a user-friendly wrapper lib for sockets in Golang. You can send and listen to TCP sockets with a few lines of code.
 
 ## Contents
 
@@ -21,7 +21,7 @@ Hare is a user-friendly lib for sockets in Golang. You can send and listen to TC
 - [Documentation](#documentation)
 - [Examples](#examples)
 - [Testing](#testing)
-- [Contribuiting](#contributing)
+- [Contributing](#contributing)
 - [License](#license)
 
 ## Installation
@@ -62,7 +62,7 @@ func main() {
 }
 ```
 
-[Sample code](./examples/listen.go) for listening port:
+[Sample code](./examples/listen.go) for listening a port:
 
 ```go
 package main
@@ -318,7 +318,6 @@ before merged in the **develop** branch (or even ``main`` or ``release`` in case
 of a ``*fix``).
 
 Feel free to apply the labels from GitHub to the pull requests, they are very helpful.
-
 
 ## License
 
