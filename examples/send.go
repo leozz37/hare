@@ -6,7 +6,7 @@ import (
 
 func main() {
 	err := hare.Send("3000", "Hey")
-	if err != {
+	if err != nil {
 		panic(err)
 	}
 }
