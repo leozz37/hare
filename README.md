@@ -278,10 +278,6 @@ The ```develop``` is a **regular branch** which always contains the latest
 **development** codebase and **eventually** can be broken. But you'll need to
 accept the **sombrero of shame** if you do that.
 
-The ```release``` is a **regular branch** which contains a specific release
-version. You must use the following name convention: **release-X.Y.Z**, where
-X, Y and Z are: major, minor and patch [version numbers](#versioning).
-
 The ```experimental``` is a **temporary branch** which contains a new feature or
 ideia. You must use the following name convention: **experimental-brief-description**.
 
