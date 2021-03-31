@@ -18,7 +18,7 @@ Hare is a user-friendly lib for sockets in Golang. You can send and listen to TC
 ## Contents
 
 - [Installation](#installation)
-- [Quick start](#quick-start)
+- [Quickstart](#quickstart)
 - [Documentation](#documentation)
 - [Examples](#examples)
 - [Testing](#testing)
@@ -27,7 +27,7 @@ Hare is a user-friendly lib for sockets in Golang. You can send and listen to TC
 
 ## Installation
 
-First you need [Go](https://golang.org/) installed (version 1.12+ is required), then you can install Hare:
+First, you need [Go](https://golang.org/) installed (version 1.12+ is required), then you can install Hare:
 
 ```shell
 $ go get -u "github.com/leozz37/hare"
@@ -47,7 +47,7 @@ $ brew tap leozz37/jaguar
 $ brew install jaguar
 ```
 
-## Quick start
+## Quickstart
 
 [Sample code](./examples/send.go) for sending payloads:
 
@@ -87,7 +87,7 @@ func main() {
 
 ## Documentation
 
-The library consists on two features: **listen** and **send** to a given port. You can check the full documentation on [Godoc](https://pkg.go.dev/github.com/leozz37/hare#section-documentation).
+The library consists of two features: **listen** and **send** to a given port. You can check the full documentation on [Godoc](https://pkg.go.dev/github.com/leozz37/hare#section-documentation).
 
 ### Send
 
@@ -199,7 +199,7 @@ func main() {
 
 You can check the [example](./examples) for code usages, like [send](./examples/send.go) and [listen](./examples/listen.go) samples.
 
-Since Hare only listen and send messages, here's a complete example:
+Since Hare only listens and send messages, here's a complete example:
 
 ```go
 package main
@@ -249,7 +249,7 @@ $ go test -v -covermode=count -coverprofile=coverage.out
 
 ## Contributing
 
-A full guideline about contributing to Alacritty can be found in the [CONTRIBUTING.md](./CONTRIBUTING.md) file.
+A full guideline about contributing to Hare can be found in the [CONTRIBUTING.md](./CONTRIBUTING.md) file.
 
 ### Issues
 
@@ -265,7 +265,7 @@ Open your pull request against ```develop```.
 
 You should add/modify tests to cover your proposed code changes.
 
-Tests coverage should never go down from 90%.
+Test coverage should never go down from 90%.
 
 If your pull request contains a new feature, please document it on the README.
 
@@ -279,13 +279,13 @@ The ```develop``` is a **regular branch** which always contains the latest
 accept the **sombrero of shame** if you do that.
 
 The ```experimental``` is a **temporary branch** which contains a new feature or
-ideia. You must use the following name convention: **experimental-brief-description**.
+idea. You must use the following name convention: **experimental-brief-description**.
 
 The ```feature``` is a **temporary branch** which contains a new feature under
-development that latter will be merged against the development branch. You must
+development that later will be merged against the development branch. You must
 use the following name convention: **feature-brief-description**.
 
-The ```bugfix``` is a **temporary branch** which contains necessary fix to be
+The ```bugfix``` is a **temporary branch** which contains the necessary fix to be
 applied **after** a specific release to be merged against the development branch.
 You must use the following name convention: **bugfix-brief-description**.
 
@@ -305,7 +305,7 @@ order to control the version numbers.
 The ```main```, ```develop``` and ```release``` branches have protection rules
 against **push**.
 
-In order to contribute you must create a new branch following the [branching](#branching)
+To contribute you must create a new branch following the [branching](#branching)
 guideline and once your work is done, open a **pull request** from your branch
 to the **develop** branch.
 
