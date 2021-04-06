@@ -25,7 +25,7 @@ Hare is a user-friendly lib for sockets in Golang. You can send and listen to TC
 - [Contributing](#contributing)
 - [License](#license)
 
-## Installation
+## 🖥️ Installation
 
 First, you need [Go](https://golang.org/) installed (version 1.12+ is required), then you can install Hare:
 
@@ -47,7 +47,7 @@ $ brew tap leozz37/jaguar
 $ brew install jaguar
 ```
 
-## Quickstart
+## 🍕 Quickstart
 
 [Sample code](./examples/send.go) for sending payloads:
 
@@ -85,7 +85,7 @@ func main() {
 }
 ```
 
-## Documentation
+## 📖 Documentation
 
 The library consists of two features: **listen** and **send** to a given port. You can check the full documentation on [Godoc](https://pkg.go.dev/github.com/leozz37/hare#section-documentation).
 
@@ -195,7 +195,7 @@ func main() {
 }
 ```
 
-## Examples
+## 📙 Examples
 
 You can check the [example](./examples) for code usages, like [send](./examples/send.go) and [listen](./examples/listen.go) samples.
 
@@ -233,7 +233,7 @@ func main() {
 }
 ```
 
-## Testing
+## 🧪 Testing
 
 To run the test suite, you can run with:
 
@@ -247,7 +247,7 @@ If you want a more detailed report with coverage and an `coverage.out` file, do 
 $ go test -v -covermode=count -coverprofile=coverage.out
 ```
 
-## Contributing
+## 🤝 Contributing
 
 A full guideline about contributing to Hare can be found in the [CONTRIBUTING.md](./CONTRIBUTING.md) file.
 
@@ -316,6 +316,6 @@ of a ``*fix``).
 
 Feel free to apply the labels from GitHub to the pull requests, they are very helpful.
 
-## License
+## ⚖️ License
 
 Hare is released under the [MIT License](./LICENSE).
