@@ -18,16 +18,16 @@ Hare is a user-friendly lib for sockets in Golang. You can send and listen to TC
 ## Contents
 
 - [Installation](#installation)
-- [Quick start](#quick-start)
+- [Quickstart](#quickstart)
 - [Documentation](#documentation)
 - [Examples](#examples)
 - [Testing](#testing)
 - [Contributing](#contributing)
 - [License](#license)
 
-## Installation
+## 🖥️ Installation
 
-First you need [Go](https://golang.org/) installed (version 1.12+ is required), then you can install Hare:
+First, you need [Go](https://golang.org/) installed (version 1.12+ is required), then you can install Hare:
 
 ```shell
 $ go get -u "github.com/leozz37/hare"
@@ -47,7 +47,7 @@ $ brew tap leozz37/jaguar
 $ brew install jaguar
 ```
 
-## Quick start
+## 🍕 Quickstart
 
 [Sample code](./examples/send.go) for sending payloads:
 
@@ -85,9 +85,9 @@ func main() {
 }
 ```
 
-## Documentation
+## 📖 Documentation
 
-The library consists on two features: **listen** and **send** to a given port. You can check the full documentation on [Godoc](https://pkg.go.dev/github.com/leozz37/hare#section-documentation).
+The library consists of two features: **listen** and **send** to a given port. You can check the full documentation on [Godoc](https://pkg.go.dev/github.com/leozz37/hare#section-documentation).
 
 ### Send
 
@@ -195,11 +195,11 @@ func main() {
 }
 ```
 
-## Examples
+## 📙 Examples
 
 You can check the [example](./examples) for code usages, like [send](./examples/send.go) and [listen](./examples/listen.go) samples.
 
-Since Hare only listen and send messages, here's a complete example:
+Since Hare only listens and send messages, here's a complete example:
 
 ```go
 package main
@@ -233,7 +233,7 @@ func main() {
 }
 ```
 
-## Testing
+## 🧪 Testing
 
 To run the test suite, you can run with:
 
@@ -247,79 +247,10 @@ If you want a more detailed report with coverage and an `coverage.out` file, do 
 $ go test -v -covermode=count -coverprofile=coverage.out
 ```
 
-## Contributing
+## 🤝 Contributing
 
-A full guideline about contributing to Alacritty can be found in the [CONTRIBUTING.md](./CONTRIBUTING.md) file.
+A full guideline about contributing to Hare can be found in the [CONTRIBUTING.md](./CONTRIBUTING.md) file.
 
-### Issues
-
-Use the search tool before opening a new issue.
-
-Please provide source code and commit sha if you found a bug.
-
-Review existing issues and provide feedback or react to them.
-
-### Pull requests
-
-Open your pull request against ```develop```.
-
-You should add/modify tests to cover your proposed code changes.
-
-Tests coverage should never go down from 90%.
-
-If your pull request contains a new feature, please document it on the README.
-
-### Branching
-
-The ```main``` is a **regular branch** which always contains the latest
-**stable** codebase and must **never** be broken.
-
-The ```develop``` is a **regular branch** which always contains the latest
-**development** codebase and **eventually** can be broken. But you'll need to
-accept the **sombrero of shame** if you do that.
-
-The ```release``` is a **regular branch** which contains a specific release
-version. You must use the following name convention: **release-X.Y.Z**, where
-X, Y and Z are: major, minor and patch [version numbers](#versioning).
-
-The ```experimental``` is a **temporary branch** which contains a new feature or
-ideia. You must use the following name convention: **experimental-brief-description**.
-
-The ```feature``` is a **temporary branch** which contains a new feature under
-development that latter will be merged against the development branch. You must
-use the following name convention: **feature-brief-description**.
-
-The ```bugfix``` is a **temporary branch** which contains necessary fix to be
-applied **after** a specific release to be merged against the development branch.
-You must use the following name convention: **bugfix-brief-description**.
-
-The ```hotfix``` is a **temporary branch** which contains a critical fix to be
-applied **immediately** and merged against the main and the development branches.
-You must use the following name convention: **hotfix-brief-description**.
-
-Feel free to apply the labels from GitHub to the branches, they are very helpful.
-
-### Versioning
-
-The project uses the [semantic versioning 2.0.0](https://semver.org) in
-order to control the version numbers.
-
-### Commiting
-
-The ```main```, ```develop``` and ```release``` branches have protection rules
-against **push**.
-
-In order to contribute you must create a new branch following the [branching](#branching)
-guideline and once your work is done, open a **pull request** from your branch
-to the **develop** branch.
-
-The **pull request** will trigger the test suites automatically
-and the code must **pass all the tests** and also be reviewed and approved
-before merged in the **develop** branch (or even ``main`` or ``release`` in case
-of a ``*fix``).
-
-Feel free to apply the labels from GitHub to the pull requests, they are very helpful.
-
-## License
+## ⚖️ License
 
 Hare is released under the [MIT License](./LICENSE).

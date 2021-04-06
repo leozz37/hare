@@ -6,8 +6,8 @@ import (
 )
 
 const (
-	connHost = "localhost"
-	connType = "tcp"
+	connectionHost = "localhost"
+	connectionType = "tcp"
 )
 
 // Listener tools for socket listening
@@ -41,7 +41,7 @@ func Listen(port string) (Listener, error) {
 	var listener Listener
 	var messageManager MessageManager
 
-	listener.SocketListener, err = net.Listen(connType, connHost+":"+port)
+	listener.SocketListener, err = net.Listen(connectionType, connectionHost+":"+port)
 	if err != nil {
 		return listener, err
 	}
@@ -70,7 +70,7 @@ func Listen(port string) (Listener, error) {
 
 // Send message to socket port
 func Send(port, message string) error {
-	conn, err := net.Dial(connType, connHost+":"+port)
+	conn, err := net.Dial(connectionType, connectionHost+":"+port)
 	if err != nil {
 		return err
 	}
