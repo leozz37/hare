@@ -22,7 +22,7 @@ func main() {
 	}
 	if *portPtr == "" {
 		flag.PrintDefaults()
-		fmt.Errorf("PORT flag is required.")
+		fmt.Errorf("Flag PORT is required.")
 	}
 
 	if *listenPtr {
