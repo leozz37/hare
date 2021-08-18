@@ -13,7 +13,7 @@
 [![Release](https://img.shields.io/github/v/release/leozz37/hare)](https://github.com/leozz37/hare/releases)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
-Hare is a user-friendly lib for sockets in Golang. You can send and listen to TCP connections with a few lines of code.
+Hare is a user-friendly lib for sockets in Golang and a CLI tool for interaction with sockets. You can send and listen to TCP connections with a few lines of code or commands.
 
 ## Contents
 
@@ -26,6 +26,20 @@ Hare is a user-friendly lib for sockets in Golang. You can send and listen to TC
 - [License](#license)
 
 ## 🖥️ Installation
+
+Installation guid for the CLI Tool and the Golang Library.
+
+### 💻 CLI Tool
+
+To install the CLI tool, you can install it through [Homebrew](https://brew.sh/):
+
+```shell
+$ brew tap leozz37/hare
+
+$ brew install hare
+```
+
+### 🐇 Golang Lib
 
 First, you need [Go](https://golang.org/) installed (version 1.12+ is required), then you can install Hare:
 
@@ -48,6 +62,45 @@ $ brew install jaguar
 ```
 
 ## 🍕 Quickstart
+
+Quick start for the CLI Tool and the Golang Library.
+
+### 💻 CLI Tool
+
+To use the CLI tool, these are the flags:
+
+```
+  -d string
+        Data to be sended
+  -h string
+        Host address to bo operated (default "localhost")
+  -l    Listen to a given address
+  -p string
+        Port address to bo operated         [REQUIRED]
+  -s    Send message to a given address
+```
+
+You can run the `--help`  flag:
+
+```shell
+$ hare --help
+```
+
+To `Listen` to port `3000` for example, run:
+
+```shell
+$ hare -l -p 3000
+```
+
+To `Send` a payload with the message `Hello World` to port `3000` for example, run:
+
+```shell
+$ hare -s -p 3000 -d 'Hello World'
+```
+
+![cli-example](resources/images/cli-example.png)
+
+### 🐇 Golang Lib
 
 [Sample code](./examples/send.go) for sending payloads:
 
