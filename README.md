@@ -39,6 +39,12 @@ $ brew tap leozz37/hare
 $ brew install hare
 ```
 
+Or you can install manually with the `Makefile` script:
+
+```shell
+$ make install
+```
+
 ### 🐇 Golang Lib
 
 First, you need [Go](https://golang.org/) installed (version 1.12+ is required), then you can install Hare:
