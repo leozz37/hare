@@ -59,14 +59,6 @@ Import it in your code:
 import "github.com/leozz37/hare"
 ```
 
-(Optional) install [jaguar](https://github.com/leozz37/jaguar) for testing the sockets:
-
-```shell
-$ brew tap leozz37/jaguar
-
-$ brew install jaguar
-```
-
 ## 🍕 Quickstart
 
 Quick start for the CLI Tool and the Golang Library.
