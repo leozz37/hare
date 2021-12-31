@@ -5,7 +5,7 @@ import (
 	"fmt"
 
 	"github.com/fatih/color"
-	"github.com/leozz37/hare/hare"
+	"github.com/leozz37/hare"
 )
 
 func main() {

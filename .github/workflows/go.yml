@@ -20,3 +20,10 @@ jobs:
 
       - name: Upload coverage
         run: bash <(curl -s https://codecov.io/bash)
+
+      - name: Run GoReleaser
+        uses: goreleaser/goreleaser-action@v2
+        with:
+          distribution: goreleaser
+          version: latest
+          args: release --rm-dist
