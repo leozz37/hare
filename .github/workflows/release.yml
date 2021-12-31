@@ -4,9 +4,11 @@ on:
   push: main
   pull_request: main
 
+permissions:
+  contents: write
+
 jobs:
-  deploy:
-    name: Deploy
+  goreleaser:
     runs-on: ubuntu-latest
     steps:
       - name: Run GoReleaser
