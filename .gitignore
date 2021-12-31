@@ -20,3 +20,4 @@
 
 # Coverage file
 coverage.out
+dist/

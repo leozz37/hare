@@ -1,0 +1,19 @@
+name: Deploy
+
+on:
+  push: main
+  pull_request: main
+
+permissions:
+  contents: write
+
+jobs:
+  goreleaser:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Run GoReleaser
+          uses: goreleaser/goreleaser-action@v2
+          with:
+            distribution: goreleaser
+            version: latest
+            args: release --rm-dist
