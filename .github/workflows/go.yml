@@ -16,7 +16,7 @@ jobs:
         run: go mod download
 
       - name: Test
-        run: go test -v -covermode=count -coverprofile=coverage.out ./...
+        run: go test -v -covermode=count -coverprofile=coverage.out .
 
       - name: Upload coverage
         run: bash <(curl -s https://codecov.io/bash)
