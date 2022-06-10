@@ -13,7 +13,7 @@
 [![Release](https://img.shields.io/github/v/release/leozz37/hare)](https://github.com/leozz37/hare/releases)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
-Hare is a user-friendly lib for sockets in Golang and a CLI tool for interaction with sockets. You can send and listen to TCP connections with a few lines of code or commands.
+Hare is an user-friendly package for sockets in Golang and a CLI tool for sockets interaction. You can send and listen to TCP connections with a few lines of code or commands.
 
 ## Contents
 
@@ -27,7 +27,7 @@ Hare is a user-friendly lib for sockets in Golang and a CLI tool for interaction
 
 ## 🖥️ Installation
 
-Installation guid for the CLI Tool and the Golang Library.
+Installation guide for the CLI Tool and Golang Library.
 
 ### 💻 CLI Tool
 
@@ -47,7 +47,7 @@ $ make install
 
 ### 🐇 Golang Lib
 
-First, you need [Go](https://golang.org/) installed (version 1.12+ is required), then you can install Hare:
+First, you need [Go](https://golang.org/) (version 1.12+ is required), then you can install Hare:
 
 ```shell
 $ go get -u "github.com/leozz37/hare"
