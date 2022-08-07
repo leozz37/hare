@@ -17,7 +17,6 @@
 
 # IDE
 .idea
-.vscode
 
 # Coverage file
 coverage.out

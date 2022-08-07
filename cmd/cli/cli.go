@@ -3,39 +3,38 @@ package main
 import (
 	"flag"
 	"fmt"
-	"log"
 
 	"github.com/fatih/color"
 	"github.com/leozz37/hare"
 )
 
 func main() {
-	sendFlag := flag.Bool("s", false, "Send message to a given address")
-	listenFlag := flag.Bool("l", false, "Listen to a given address")
-	portAddress := flag.String("p", "", "Port address to bo operated")
-	hostAddress := flag.String("h", "localhost", "Host address to bo operated")
-	payload := flag.String("d", "", "Data to be sended")
+	sendPtr := flag.Bool("s", false, "Send message to a given address")
+	listenPtr := flag.Bool("l", false, "Listen to a given address")
+	portPtr := flag.String("p", "", "Port address to bo operated")
+	hostPtr := flag.String("h", "localhost", "Host address to bo operated")
+	dataPtr := flag.String("d", "", "Data to be sended")
 
 	flag.Parse()
-	if *sendFlag && *listenFlag {
+	if *sendPtr && *listenPtr {
 		flag.PrintDefaults()
-		log.Fatal("You can only listen OR send to a port")
+		fmt.Errorf("You can only listen OR send to a port")
 	}
-	if *portAddress == "" {
+	if *portPtr == "" {
 		flag.PrintDefaults()
-		log.Fatal("Flag PORT is required.")
+		fmt.Errorf("Flag PORT is required.")
 	}
-	if *listenFlag {
-		err := listenPort(*portAddress, *hostAddress)
+
+	if *listenPtr {
+		err := listenPort(*portPtr, *hostPtr)
 		if err != nil {
-			panic("Error listening: " + err.Error())
+			fmt.Errorf("Could listen to address")
 		}
 	}
-	if *sendFlag {
-		err := sendMessage(*portAddress, *hostAddress, *payload)
+	if *sendPtr {
+		err := sendMessage(*portPtr, *hostPtr, *dataPtr)
 		if err != nil {
-			address := *hostAddress + ":" + *portAddress
-			panic("Error sending payload: %s" + address)
+			fmt.Errorf("Could send to address")
 		}
 	}
 }
@@ -46,7 +45,7 @@ func listenPort(port, host string) error {
 
 	r, err := hare.Listen(port)
 	if err != nil {
-		return err
+		panic(err)
 	}
 
 	for {
@@ -59,7 +58,7 @@ func listenPort(port, host string) error {
 func sendMessage(port, host, data string) error {
 	err := hare.Send(port, data)
 	if err != nil {
-		return err
+		panic(err)
 	}
 	return nil
 }
