@@ -26,9 +26,7 @@ func TestSendMessages(t *testing.T) {
 			time.Sleep(time.Second / 10)
 			if !r.HasNewMessages() {
 				t.Error("Listen didn't receive any message")
-			}
-
-			if r.GetMessage() != test.expected {
+			} else if r.GetMessage() != test.expected {
 				t.Error("Output different from input")
 			}
 		})

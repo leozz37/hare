@@ -35,7 +35,7 @@ func main() {
 		err := sendMessage(*portAddress, *hostAddress, *payload)
 		if err != nil {
 			address := *hostAddress + ":" + *portAddress
-			panic("Error sending payload: %s" + address)
+			panic("Error sending payload: %s" + address + "\nerror: " + err.Error())
 		}
 	}
 }

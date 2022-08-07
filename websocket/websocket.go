@@ -6,66 +6,62 @@ import (
 )
 
 const (
-	connectionHost = "localhost"
+	connectionHost = "0.0.0.0"
 	connectionType = "tcp"
 )
 
 // Listener tools for socket listening
 type Listener struct {
-	SocketListener net.Listener
-	HasNewMessages func() bool
-	GetMessage     func() string
-	Stop           func()
+	socketListener net.Listener
+	messageManager MessageManager
+	running        bool
 }
 
 // MessageManager manages message storage
 type MessageManager struct {
-	HasNewMessages bool
-	Message        string
-}
-
-func listening(listener Listener, messageManager *MessageManager, running *bool) error {
-	for *running {
-		c, _ := listener.SocketListener.Accept()
-		message, _ := bufio.NewReader(c).ReadString('\n')
-		messageManager.Message = message
-		messageManager.HasNewMessages = true
-	}
-	listener.SocketListener.Close()
-	return nil
+	HasNewMessage bool
+	Message       string
 }
 
 // Listen to socket port
 func Listen(port string) (Listener, error) {
-	var err error
-	var listener Listener
-	var messageManager MessageManager
-
-	listener.SocketListener, err = net.Listen(connectionType, connectionHost+":"+port)
+	listener, err := net.Listen(connectionType, connectionHost+":"+port)
 	if err != nil {
-		return listener, err
+		return Listener{}, err
 	}
 
-	// GetMessage return the last message
-	listener.GetMessage = func() string {
-		messageManager.HasNewMessages = false
-		return messageManager.Message
+	l := Listener{socketListener: listener}
+	go l.listening()
+
+	return Listener{socketListener: listener}, nil
+}
+
+// GetMessage return the last message
+func (l *Listener) GetMessage() string {
+	l.messageManager.HasNewMessage = false
+	return l.messageManager.Message
+}
+
+// HasNewMessages return if there's new messages on socket
+func (l *Listener) HasNewMessages() bool {
+	return l.messageManager.HasNewMessage
+}
+
+// Stop the listener
+func (l *Listener) Stop() {
+	l.running = false
+}
+
+// listening listen thread for new messages on socket port
+func (l *Listener) listening() error {
+	for l.running {
+		c, _ := l.socketListener.Accept()
+		message, _ := bufio.NewReader(c).ReadString('\n')
+		l.messageManager.Message = message
+		l.messageManager.HasNewMessage = true
 	}
-
-	// HasNewMessages return if there's new messages on socket
-	listener.HasNewMessages = func() bool {
-		return messageManager.HasNewMessages
-	}
-
-	running := true
-	// Stop the listener
-	listener.Stop = func() {
-		running = false
-	}
-
-	go listening(listener, &messageManager, &running)
-
-	return listener, nil
+	l.socketListener.Close()
+	return nil
 }
 
 // Send message to socket port
