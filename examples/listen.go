@@ -1,4 +1,4 @@
-package main
+package example
 
 import (
 	"fmt"
@@ -6,7 +6,7 @@ import (
 	"github.com/leozz37/hare"
 )
 
-func main() {
+func ListenExample() {
 	r, err := hare.Listen("3000")
 	if err != nil {
 		panic(err)
