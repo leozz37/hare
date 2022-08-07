@@ -23,7 +23,7 @@ func TestSendMessages(t *testing.T) {
 			r, _ := Listen(test.port)
 			Send(test.port, test.payload)
 
-			time.Sleep(time.Second)
+			time.Sleep(time.Second / 10)
 			if !r.HasNewMessages() {
 				t.Error("Listen didn't receive any message")
 			}
@@ -54,7 +54,7 @@ func TestListen(t *testing.T) {
 			}
 
 			Send(test.port, test.payload)
-			time.Sleep(time.Second)
+			time.Sleep(time.Second / 10)
 			if !r.HasNewMessages() {
 				t.Error("Listen didn't receive any message")
 			}
