@@ -1,12 +1,12 @@
 package example
 
 import (
-	"github.com/leozz37/hare"
+	"github.com/leozz37/hare/websocket"
 )
 
 // SendExample is an example of how to send messages
 func SendExample() {
-	err := hare.Send("3000", "Hey")
+	err := websocket.Send("3000", "Hey")
 	if err != nil {
 		panic(err)
 	}

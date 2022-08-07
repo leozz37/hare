@@ -6,7 +6,7 @@ import (
 	"log"
 
 	"github.com/fatih/color"
-	"github.com/leozz37/hare"
+	"github.com/leozz37/hare/websocket"
 )
 
 func main() {
@@ -44,7 +44,7 @@ func listenPort(port, host string) error {
 	red := color.New(color.FgRed).SprintFunc()
 	fmt.Printf("Listening to port: %s\n", red(port))
 
-	r, err := hare.Listen(port)
+	r, err := websocket.Listen(port)
 	if err != nil {
 		return err
 	}
@@ -57,7 +57,7 @@ func listenPort(port, host string) error {
 }
 
 func sendMessage(port, host, data string) error {
-	err := hare.Send(port, data)
+	err := websocket.Send(port, data)
 	if err != nil {
 		return err
 	}

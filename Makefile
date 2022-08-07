@@ -13,7 +13,10 @@ deps:
 	@go mod download
 
 test:
-	@go test . -v
+	@go test ./... -v
 
 test-coverage:
-	@go test -v -covermode=count -coverprofile=coverage.out .
+	@go test -v -covermode=count -coverprofile=coverage.out ./...
+
+test-fuzz:
+	@go test -fuzz={FuzzPayload} -v ./websocket

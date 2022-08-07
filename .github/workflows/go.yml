@@ -12,11 +12,16 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v2
 
+      - uses: actions/setup-go@v3
+        with:
+          go-version-file: 'go.mod'
+      - run: go version
+
       - name: Get dependencies
         run: go mod download
 
       - name: Test
-        run: go test -v -covermode=count -coverprofile=coverage.out .
+        run: go test -v -covermode=count -coverprofile=coverage.out ./...
 
       - name: Upload coverage
         run: bash <(curl -s https://codecov.io/bash)

@@ -1,4 +1,4 @@
-package hare
+package websocket
 
 import (
 	"bufio"
