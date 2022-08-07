@@ -6,6 +6,7 @@ import (
 	"github.com/leozz37/hare"
 )
 
+// ListenExample is an example of how to listen for messages
 func ListenExample() {
 	r, err := hare.Listen("3000")
 	if err != nil {
