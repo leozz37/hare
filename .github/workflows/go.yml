@@ -12,6 +12,11 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v2
 
+      - uses: actions/setup-go@v3
+        with:
+          go-version-file: 'path/to/go.mod'
+      - run: go version
+
       - name: Get dependencies
         run: go mod download
 
