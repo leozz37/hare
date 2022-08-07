@@ -20,3 +20,6 @@ test-coverage:
 
 test-fuzz:
 	@go test -fuzz={FuzzPayload} -v ./websocket
+
+test-coverage:
+	@go test -v -covermode=count -coverprofile=coverage.out ./...
