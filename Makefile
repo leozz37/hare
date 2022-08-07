@@ -20,3 +20,6 @@ test-coverage:
 
 test-fuzz:
 	@go test -fuzz={FuzzPayload} -v ./websocket
+
+test-benchmark:
+	@go test -bench=".*" -v -run=^# -benchmem ./...
