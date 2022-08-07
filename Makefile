@@ -13,7 +13,7 @@ deps:
 	@go mod download
 
 test:
-	@go test . -v
+	@go test ./...
 
 test-coverage:
-	@go test -v -covermode=count -coverprofile=coverage.out .
+	@go test -v -covermode=count -coverprofile=coverage.out ./...
