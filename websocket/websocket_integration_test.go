@@ -20,7 +20,11 @@ func TestSendMessages(t *testing.T) {
 
 	for _, test := range testTable {
 		t.Run(test.name, func(t *testing.T) {
-			r, _ := Listen(test.port)
+			r, err := Listen(test.port)
+			if err != nil {
+				t.Errorf("Error listening: %s", err.Error())
+			}
+
 			Send(test.port, test.payload)
 
 			time.Sleep(time.Second / 10)
