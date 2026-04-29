@@ -305,3 +305,7 @@ A full guideline about contributing to Hare can be found in the [CONTRIBUTING.md
 ## ⚖️ License
 
 Hare is released under the [MIT License](./LICENSE).
+
+## Test
+
+Hello World, test cursor
